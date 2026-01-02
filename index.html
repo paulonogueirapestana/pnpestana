@@ -131,6 +131,40 @@
             color: var(--accent-light);
         }
 
+        /* Language Switcher */
+        .lang-switcher {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-left: 24px;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 4px;
+            border-radius: 20px;
+            border: 1px solid var(--border);
+        }
+
+        .lang-btn {
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 500;
+            font-size: 0.85rem;
+            cursor: pointer;
+            padding: 4px 12px;
+            border-radius: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .lang-btn.active {
+            background: var(--accent);
+            color: white;
+        }
+
+        .lang-btn:hover:not(.active) {
+            color: var(--text-primary);
+        }
+
         /* Hero Section */
         .hero {
             min-height: 100vh;
@@ -534,11 +568,15 @@
                 <span class="logo-text"><span class="logo-pp">pnp</span>estana</span>
             </a>
             <ul class="nav-links">
-                <li><a href="#skills">Services</a></li>
-                <li><a href="#clients">Clients</a></li>
-                <li><a href="#mentoring">Training</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#skills" data-i18n="nav.services">Services</a></li>
+                <li><a href="#clients" data-i18n="nav.clients">Clients</a></li>
+                <li><a href="#mentoring" data-i18n="nav.training">Training</a></li>
+                <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
             </ul>
+            <div class="lang-switcher">
+                <button class="lang-btn active" onclick="switchLanguage('en')">EN</button>
+                <button class="lang-btn" onclick="switchLanguage('pt')">PT</button>
+            </div>
         </nav>
     </header>
 
@@ -571,23 +609,24 @@
                         </svg>
                         <span class="logo-text"><span class="gradient-letter">pnp</span>estana</span>
                     </h1>
-                    <p class="hero-subtitle">Solutions Architecture | .NET Development | Technical Consulting</p>
-                    <p style="color: var(--text-secondary); max-width: 500px;">
+                    <p class="hero-subtitle" data-i18n="hero.subtitle">Solutions Architecture | .NET Development |
+                        Technical Consulting</p>
+                    <p style="color: var(--text-secondary); max-width: 500px;" data-i18n="hero.description">
                         Enterprise solutions and technical consulting for leading organizations across Europe.
                         Delivering scalable architectures, clean code, and results since 2000.
                     </p>
                     <div class="hero-stats">
                         <div class="stat">
                             <div class="stat-number">25+</div>
-                            <div class="stat-label">Years in Business</div>
+                            <div class="stat-label" data-i18n="hero.stat.years">Years in Business</div>
                         </div>
                         <div class="stat">
                             <div class="stat-number">20+</div>
-                            <div class="stat-label">Enterprise Clients</div>
+                            <div class="stat-label" data-i18n="hero.stat.clients">Enterprise Clients</div>
                         </div>
                         <div class="stat">
                             <div class="stat-number">50+</div>
-                            <div class="stat-label">Projects Delivered</div>
+                            <div class="stat-label" data-i18n="hero.stat.projects">Projects Delivered</div>
                         </div>
                     </div>
                 </div>
@@ -599,14 +638,15 @@
     <section id="skills">
         <div class="container">
             <div class="section-header">
-                <div class="section-label">What We Do</div>
-                <h2 class="section-title">Our Services</h2>
+                <div class="section-label" data-i18n="skills.label">What We Do</div>
+                <h2 class="section-title" data-i18n="skills.title">Our Services</h2>
             </div>
             <div class="skills-grid">
                 <div class="skill-card">
                     <div class="skill-icon"><i class="ph ph-gear"></i></div>
-                    <h3>Backend Development</h3>
-                    <p>Expert in building robust, scalable APIs and microservices with .NET ecosystem.</p>
+                    <h3 data-i18n="skills.backend.title">Backend Development</h3>
+                    <p data-i18n="skills.backend.desc">Expert in building robust, scalable APIs and microservices with
+                        .NET ecosystem.</p>
                     <div class="tech-tags">
                         <span class="tech-tag">.NET 8</span>
                         <span class="tech-tag">C#</span>
@@ -617,8 +657,9 @@
                 </div>
                 <div class="skill-card">
                     <div class="skill-icon"><i class="ph ph-database"></i></div>
-                    <h3>Database & Data</h3>
-                    <p>Deep expertise in database design, optimization, and ETL workflows.</p>
+                    <h3 data-i18n="skills.database.title">Database & Data</h3>
+                    <p data-i18n="skills.database.desc">Deep expertise in database design, optimization, and ETL
+                        workflows.</p>
                     <div class="tech-tags">
                         <span class="tech-tag">SQL Server</span>
                         <span class="tech-tag">PostgreSQL</span>
@@ -629,8 +670,8 @@
                 </div>
                 <div class="skill-card">
                     <div class="skill-icon"><i class="ph ph-cloud-arrow-up"></i></div>
-                    <h3>Cloud & DevOps</h3>
-                    <p>Architecting cloud solutions and implementing CI/CD pipelines.</p>
+                    <h3 data-i18n="skills.cloud.title">Cloud & DevOps</h3>
+                    <p data-i18n="skills.cloud.desc">Architecting cloud solutions and implementing CI/CD pipelines.</p>
                     <div class="tech-tags">
                         <span class="tech-tag">Azure</span>
                         <span class="tech-tag">Docker</span>
@@ -641,8 +682,9 @@
                 </div>
                 <div class="skill-card">
                     <div class="skill-icon"><i class="ph ph-desktop"></i></div>
-                    <h3>Frontend & Full Stack</h3>
-                    <p>Building modern web applications with contemporary frameworks.</p>
+                    <h3 data-i18n="skills.frontend.title">Frontend & Full Stack</h3>
+                    <p data-i18n="skills.frontend.desc">Building modern web applications with contemporary frameworks.
+                    </p>
                     <div class="tech-tags">
                         <span class="tech-tag">React</span>
                         <span class="tech-tag">Blazor</span>
@@ -658,8 +700,8 @@
     <section id="clients" style="background: var(--bg-secondary);">
         <div class="container">
             <div class="section-header" style="text-align: center;">
-                <div class="section-label">Trusted By</div>
-                <h2 class="section-title">Our Clients</h2>
+                <div class="section-label" data-i18n="clients.label">Trusted By</div>
+                <h2 class="section-title" data-i18n="clients.title">Our Clients</h2>
             </div>
             <div class="clients-grid">
                 <div class="client-logo" title="Johnson & Johnson">
@@ -770,40 +812,45 @@
     <section id="mentoring">
         <div class="container">
             <div class="section-header">
-                <div class="section-label">Training Services</div>
-                <h2 class="section-title">Technical Training</h2>
+                <div class="section-label" data-i18n="mentoring.label">Training Services</div>
+                <h2 class="section-title" data-i18n="mentoring.title">Technical Training</h2>
             </div>
             <div class="mentoring-section">
-                <h3>🎓 Empowering Development Teams</h3>
-                <p style="color: var(--text-secondary); font-size: 1.1rem;">
+                <h3 data-i18n="mentoring.highlight.title">🎓 Empowering Development Teams</h3>
+                <p style="color: var(--text-secondary); font-size: 1.1rem;" data-i18n="mentoring.highlight.desc">
                     We provide hands-on technical training and mentorship to help teams
                     level up their skills and deliver better software.
                 </p>
                 <div class="mentoring-list">
                     <div class="mentoring-item">
                         <span class="mentoring-icon"><i class="ph-fill ph-check-circle"></i></span>
-                        <p><strong>Team Training</strong> – On-site and remote workshops for development teams</p>
+                        <p data-i18n="mentoring.item1"><strong>Team Training</strong> – On-site and remote workshops for
+                            development teams</p>
                     </div>
                     <div class="mentoring-item">
                         <span class="mentoring-icon"><i class="ph-fill ph-check-circle"></i></span>
-                        <p><strong>.NET & C# Mastery</strong> – From fundamentals to advanced patterns and best
-                            practices</p>
+                        <p data-i18n="mentoring.item2"><strong>.NET & C# Mastery</strong> – From fundamentals to
+                            advanced patterns and best practices</p>
                     </div>
                     <div class="mentoring-item">
                         <span class="mentoring-icon"><i class="ph-fill ph-check-circle"></i></span>
-                        <p><strong>Architecture Workshops</strong> – Clean Architecture, CQRS, Microservices design</p>
+                        <p data-i18n="mentoring.item3"><strong>Architecture Workshops</strong> – Clean Architecture,
+                            CQRS, Microservices design</p>
                     </div>
                     <div class="mentoring-item">
                         <span class="mentoring-icon"><i class="ph-fill ph-check-circle"></i></span>
-                        <p><strong>Code Review Sessions</strong> – Elevate code quality and teach best practices</p>
+                        <p data-i18n="mentoring.item4"><strong>Code Review Sessions</strong> – Elevate code quality and
+                            teach best practices</p>
                     </div>
                     <div class="mentoring-item">
                         <span class="mentoring-icon"><i class="ph-fill ph-check-circle"></i></span>
-                        <p><strong>Cloud & DevOps</strong> – Azure, Docker, Kubernetes, CI/CD pipelines</p>
+                        <p data-i18n="mentoring.item5"><strong>Cloud & DevOps</strong> – Azure, Docker, Kubernetes,
+                            CI/CD pipelines</p>
                     </div>
                     <div class="mentoring-item">
                         <span class="mentoring-icon"><i class="ph-fill ph-check-circle"></i></span>
-                        <p><strong>1:1 Mentoring</strong> – Personalized guidance for developers at any level</p>
+                        <p data-i18n="mentoring.item6"><strong>1:1 Mentoring</strong> – Personalized guidance for
+                            developers at any level</p>
                     </div>
                 </div>
             </div>
@@ -813,10 +860,10 @@
     <section id="contact" class="contact-section" style="background: var(--bg-secondary);">
         <div class="container">
             <div class="section-header" style="text-align: center;">
-                <div class="section-label">Get In Touch</div>
-                <h2 class="section-title">Let's Connect</h2>
+                <div class="section-label" data-i18n="contact.label">Get In Touch</div>
+                <h2 class="section-title" data-i18n="contact.title">Let's Connect</h2>
             </div>
-            <p style="color: var(--text-secondary); max-width: 500px; margin: 0 auto;">
+            <p style="color: var(--text-secondary); max-width: 500px; margin: 0 auto;" data-i18n="contact.desc">
                 Based in Lisboa, Portugal. Serving clients across Europe with remote and on-site engagements.
             </p>
             <div class="contact-links">
@@ -825,7 +872,7 @@
                         <path
                             d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
                     </svg>
-                    Email Me
+                    <span data-i18n="contact.email">Email Me</span>
                 </a>
                 <a href="tel:+351969964913" class="contact-link">
                     <svg fill="currentColor" viewBox="0 0 24 24">
@@ -847,9 +894,116 @@
 
     <footer>
         <div class="container">
-            <p>© 2025 pnpestana. Solutions Architecture & .NET Development. Lisboa, Portugal.</p>
+            <p data-i18n="footer.text">© 2025 pnpestana. Solutions Architecture & .NET Development. Lisboa, Portugal.
+            </p>
         </div>
     </footer>
+
+    <script>
+        const translations = {
+            en: {
+                "nav.services": "Services",
+                "nav.clients": "Clients",
+                "nav.training": "Training",
+                "nav.contact": "Contact",
+                "hero.subtitle": "Solutions Architecture | .NET Development | Technical Consulting",
+                "hero.description": "Enterprise solutions and technical consulting for leading organizations across Europe. Delivering scalable architectures, clean code, and results since 2000.",
+                "hero.stat.years": "Years in Business",
+                "hero.stat.clients": "Enterprise Clients",
+                "hero.stat.projects": "Projects Delivered",
+                "skills.label": "What We Do",
+                "skills.title": "Our Services",
+                "skills.backend.title": "Backend Development",
+                "skills.backend.desc": "Expert in building robust, scalable APIs and microservices with .NET ecosystem.",
+                "skills.database.title": "Database & Data",
+                "skills.database.desc": "Deep expertise in database design, optimization, and ETL workflows.",
+                "skills.cloud.title": "Cloud & DevOps",
+                "skills.cloud.desc": "Architecting cloud solutions and implementing CI/CD pipelines.",
+                "skills.frontend.title": "Frontend & Full Stack",
+                "skills.frontend.desc": "Building modern web applications with contemporary frameworks.",
+                "clients.label": "Trusted By",
+                "clients.title": "Our Clients",
+                "mentoring.label": "Training Services",
+                "mentoring.title": "Technical Training",
+                "mentoring.highlight.title": "🎓 Empowering Development Teams",
+                "mentoring.highlight.desc": "We provide hands-on technical training and mentorship to help teams level up their skills and deliver better software.",
+                "mentoring.item1": "<strong>Team Training</strong> – On-site and remote workshops for development teams",
+                "mentoring.item2": "<strong>.NET & C# Mastery</strong> – From fundamentals to advanced patterns and best practices",
+                "mentoring.item3": "<strong>Architecture Workshops</strong> – Clean Architecture, CQRS, Microservices design",
+                "mentoring.item4": "<strong>Code Review Sessions</strong> – Elevate code quality and teach best practices",
+                "mentoring.item5": "<strong>Cloud & DevOps</strong> – Azure, Docker, Kubernetes, CI/CD pipelines",
+                "mentoring.item6": "<strong>1:1 Mentoring</strong> – Personalized guidance for developers at any level",
+                "contact.label": "Get In Touch",
+                "contact.title": "Let's Connect",
+                "contact.desc": "Based in Lisboa, Portugal. Serving clients across Europe with remote and on-site engagements.",
+                "contact.email": "Email Me",
+                "footer.text": "© 2025 pnpestana. Solutions Architecture & .NET Development. Lisboa, Portugal."
+            },
+            pt: {
+                "nav.services": "Serviços",
+                "nav.clients": "Clientes",
+                "nav.training": "Formação",
+                "nav.contact": "Contacto",
+                "hero.subtitle": "Arquitetura de Soluções | Desenvolvimento .NET | Consultoria Técnica",
+                "hero.description": "Soluções empresariais e consultoria técnica para organizações líderes na Europa. Entrega de arquiteturas escaláveis, clean code e resultados desde 2000.",
+                "hero.stat.years": "Anos no Mercado",
+                "hero.stat.clients": "Clientes Empresariais",
+                "hero.stat.projects": "Projetos Entregues",
+                "skills.label": "O Que Fazemos",
+                "skills.title": "Os Nossos Serviços",
+                "skills.backend.title": "Desenvolvimento Backend",
+                "skills.backend.desc": "Especialista em construir APIs robustas e escaláveis e microsserviços com o ecossistema .NET.",
+                "skills.database.title": "Bases de Dados & Dados",
+                "skills.database.desc": "Profunda experiência em design de bases de dados, otimização e workflows ETL.",
+                "skills.cloud.title": "Cloud & DevOps",
+                "skills.cloud.desc": "Arquitetura de soluções cloud e implementação de pipelines CI/CD.",
+                "skills.frontend.title": "Frontend & Full Stack",
+                "skills.frontend.desc": "Desenvolvimento de aplicações web modernas com frameworks contemporâneas.",
+                "clients.label": "A Confiança De",
+                "clients.title": "Os Nossos Clientes",
+                "mentoring.label": "Serviços de Formação",
+                "mentoring.title": "Formação Técnica",
+                "mentoring.highlight.title": "🎓 Capacitar Equipas de Desenvolvimento",
+                "mentoring.highlight.desc": "Fornecemos formação técnica prática e mentoria para ajudar equipas a elevar as suas competências e entregar melhor software.",
+                "mentoring.item1": "<strong>Formação de Equipas</strong> – Workshops remotos e presenciais para equipas de desenvolvimento",
+                "mentoring.item2": "<strong>Mestria em .NET & C#</strong> – Desde os fundamentos a padrões avançados e melhores práticas",
+                "mentoring.item3": "<strong>Workshops de Arquitetura</strong> – Clean Architecture, CQRS, design de Microsserviços",
+                "mentoring.item4": "<strong>Sessões de Code Review</strong> – Eleve a qualidade do código e ensine as melhores práticas",
+                "mentoring.item5": "<strong>Cloud & DevOps</strong> – Azure, Docker, Kubernetes, pipelines CI/CD",
+                "mentoring.item6": "<strong>Mentoria 1:1</strong> – Orientação personalizada para programadores de qualquer nível",
+                "contact.label": "Entre em Contacto",
+                "contact.title": "Vamos Conversar",
+                "contact.desc": "Sediado em Lisboa, Portugal. A servir clientes por toda a Europa com compromissos remotos e presenciais.",
+                "contact.email": "Envie-me um Email",
+                "footer.text": "© 2025 pnpestana. Arquitetura de Soluções & Desenvolvimento .NET. Lisboa, Portugal."
+            }
+        };
+
+        function switchLanguage(lang) {
+            // Update active button state
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelector(`.lang-btn[onclick=\"switchLanguage('${lang}')\"]`).classList.add('active');
+
+            // Save preference
+            localStorage.setItem('pnpestana_lang', lang);
+
+            // Update text content
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (translations[lang][key]) {
+                    if (key.includes('mentoring.item')) {
+                        element.innerHTML = translations[lang][key]; // Use innerHTML for items with <strong> tags
+                    } else {
+                        element.textContent = translations[lang][key];
+                    }
+                }
+            });
+        }
+
+        // Initialize language
+        const savedLang = localStorage.getItem('pnpestana_lang') || 'en';
+        switchLanguage(savedLang);
+    </script>
 </body>
 
 </html>
